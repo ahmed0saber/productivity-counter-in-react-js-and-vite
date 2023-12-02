@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useReducer } from 'react'
 import './App.css'
 import CountersContext from './context/CountersContext'
 import CountersList from './components/CountersList'
@@ -22,11 +22,41 @@ const initialCounters = [
   },
 ]
 
+function countersReducer(state, action) {
+  if (action.type === "increase") {
+    return state.map(item => {
+      if (item.id === action.id) {
+        return {
+          ...item,
+          count: item.count + 1
+        }
+      }
+
+      return item
+    })
+  }
+
+  if (action.type === "decrease") {
+    return state.map(item => {
+      if (item.id === action.id) {
+        if (item.count > 0) {
+          return {
+            ...item,
+            count: item.count - 1
+          }
+        }
+      }
+
+      return item
+    })
+  }
+}
+
 function App() {
-  const [counters, setCounters] = useState(initialCounters)
+  const [counters, dispatch] = useReducer(countersReducer, initialCounters)
 
   return (
-    <CountersContext.Provider value={{ counters, setCounters }}>
+    <CountersContext.Provider value={{ counters, dispatch }}>
       <Heading />
       <CountersList />
     </CountersContext.Provider>

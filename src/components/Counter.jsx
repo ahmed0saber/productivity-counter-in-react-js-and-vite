@@ -2,34 +2,20 @@ import React, { useContext } from 'react'
 import CountersContext from '../context/CountersContext'
 
 export default function Counter({ counter }) {
-    const { setCounters } = useContext(CountersContext)
+    const { dispatch } = useContext(CountersContext)
 
     const increaseCount = () => {
-        setCounters(prev => prev.map(item => {
-            if (item.id === counter.id) {
-                return {
-                    ...item,
-                    count: item.count + 1
-                }
-            }
-
-            return item
-        }))
+        dispatch({
+            type: "increase",
+            id: counter.id
+        })
     }
 
     const decreaseCount = () => {
-        setCounters(prev => prev.map(item => {
-            if (item.id === counter.id) {
-                if (item.count > 0) {
-                    return {
-                        ...item,
-                        count: item.count - 1
-                    }
-                }
-            }
-
-            return item
-        }))
+        dispatch({
+            type: "decrease",
+            id: counter.id
+        })
     }
 
     return (
