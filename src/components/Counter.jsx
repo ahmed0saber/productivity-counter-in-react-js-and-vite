@@ -1,21 +1,15 @@
-import React, { useContext } from 'react'
-import CountersContext from '../context/CountersContext'
+import { decrement, increment } from '../redux/countersSlice'
+import { useDispatch } from 'react-redux'
 
 export default function Counter({ counter }) {
-    const { dispatch } = useContext(CountersContext)
+    const dispatch = useDispatch()
 
     const increaseCount = () => {
-        dispatch({
-            type: "increase",
-            id: counter.id
-        })
+        dispatch(increment({ id: counter.id }))
     }
 
     const decreaseCount = () => {
-        dispatch({
-            type: "decrease",
-            id: counter.id
-        })
+        dispatch(decrement({ id: counter.id }))
     }
 
     return (
