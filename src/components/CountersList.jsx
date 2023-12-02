@@ -3,7 +3,7 @@ import CountersContext from '../context/CountersContext'
 import Counter from './Counter'
 
 export default function CountersList() {
-    const { counters, setCounters } = useContext(CountersContext)
+    const { counters } = useContext(CountersContext)
 
     return (
         <div className='counters-list'>

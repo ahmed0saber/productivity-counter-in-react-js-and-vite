@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import CountersContext from '../context/CountersContext'
 
 export default function Heading() {
-    const { counters, setCounters } = useContext(CountersContext)
+    const { counters } = useContext(CountersContext)
 
     const getTotalCount = () => {
         let totalCount = 0

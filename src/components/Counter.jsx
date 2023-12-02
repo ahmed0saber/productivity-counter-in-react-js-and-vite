@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import CountersContext from '../context/CountersContext'
 
 export default function Counter({ counter }) {
-    const { counters, setCounters } = useContext(CountersContext)
+    const { setCounters } = useContext(CountersContext)
 
     const increaseCount = () => {
         setCounters(prev => prev.map(item => {
