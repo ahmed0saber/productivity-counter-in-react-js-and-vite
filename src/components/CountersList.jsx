@@ -1,9 +1,8 @@
-import { useContext } from 'react'
-import CountersContext from '../context/CountersContext'
+import { useSelector } from "react-redux"
 import Counter from './Counter'
 
 export default function CountersList() {
-    const { counters } = useContext(CountersContext)
+    const counters = useSelector(state => state.counters)
 
     return (
         <div className='counters-list'>

@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
-import CountersContext from '../context/CountersContext'
+import { useDispatch } from "react-redux"
 
 export default function Counter({ counter }) {
-    const { dispatch } = useContext(CountersContext)
+    const dispatch = useDispatch()
 
     const increaseCount = () => {
         dispatch({

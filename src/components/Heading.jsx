@@ -1,8 +1,7 @@
-import { useContext } from 'react'
-import CountersContext from '../context/CountersContext'
+import { useSelector } from "react-redux"
 
 export default function Heading() {
-    const { counters } = useContext(CountersContext)
+    const counters = useSelector(state => state.counters)
 
     const getTotalCount = () => {
         let totalCount = 0
