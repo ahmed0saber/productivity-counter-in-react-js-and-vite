@@ -1,18 +1,19 @@
 import { useDispatch } from "react-redux"
+import { INCREMENT, DECREMENT } from "../redux/actions/types"
 
 export default function Counter({ counter }) {
     const dispatch = useDispatch()
 
     const increaseCount = () => {
         dispatch({
-            type: "increase",
+            type: INCREMENT,
             id: counter.id
         })
     }
 
     const decreaseCount = () => {
         dispatch({
-            type: "decrease",
+            type: DECREMENT,
             id: counter.id
         })
     }

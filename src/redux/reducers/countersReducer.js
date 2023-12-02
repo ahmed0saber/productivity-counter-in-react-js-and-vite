@@ -1,3 +1,5 @@
+import { INCREMENT, DECREMENT } from "../actions/types"
+
 const initialCounters = [
     {
         id: "123",
@@ -17,7 +19,7 @@ const initialCounters = [
 ]
 
 function countersReducer(state = { counters: initialCounters }, action) {
-    if (action.type === "increase") {
+    if (action.type === INCREMENT) {
         return {
             ...state,
             counters: state.counters.map(item => {
@@ -33,7 +35,7 @@ function countersReducer(state = { counters: initialCounters }, action) {
         }
     }
 
-    if (action.type === "decrease") {
+    if (action.type === DECREMENT) {
         return {
             ...state,
             counters: state.counters.map(item => {
